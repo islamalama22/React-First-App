@@ -1,33 +1,27 @@
 import { useState } from "react";
 import Navbar from "./assets/components/navbar/Navbar.jsx";
-
+import Users from "./assets/components/users/users.jsx";
 
 function App() {
-  const [users, setUsers] = useState([ 
-  { "id":1 , "name":"islam","email":"islamalam22@gmail.com" },
-  { "id":2 , "name":"alama","email":"imalam22@gmail.com"},
-  {"id":3 , "name":"alla","email":"joodmalam22@gmail.com" }
-]);
+  const [users, setUsers] = useState([
+    { "id": 1, "name": "islam", "email": "islamalam22@gmail.com" },
+    { "id": 2, "name": "alama", "email": "imalam22@gmail.com" },
+    { "id": 3, "name": "alla", "email": "joodmalam22@gmail.com" }
+  ]);
 
   return <>
-     <section className="users"> 
+    <section className="users">
       <div className="container">
         <div className="row">
 
-        {users.map(function(user)
-        {
-          return <div className="col-md-4">
-                     <div className="user">
-                      <h2>{user.id}</h2>
-                      <p>{user.name}</p>
-                      <p>{user.email}</p>
-                       </div>    
-                </div>
-        })}
+          {users.map((user) =>
+            <Users id={user.id} name={user.name} email={user.email} />
+          )}
         </div>
       </div>
-     </section>
+    </section>
   </>
 }
+
 
 export default App;
