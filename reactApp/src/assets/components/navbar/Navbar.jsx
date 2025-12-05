@@ -24,7 +24,8 @@ function Navbar() {
             <li><Link className="dropdown-item" to={'/about'}>about</Link></li>
             <li><Link className="dropdown-item" to={'/services'}>services</Link></li>
             <li><hr className="dropdown-divider" /></li>
-            <li><Link className="dropdown-item" to={'/posts'}>posts</Link></li>
+            <li><Link className="dropdown-item" to={'/Products'}>Products</Link></li>
+            <li><Link className="dropdown-item" to={'/ProductDetails'}>ProductDetails</Link></li>
           </ul>
         </li>
       </ul>
