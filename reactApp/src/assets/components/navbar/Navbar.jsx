@@ -4,7 +4,7 @@ function Navbar() {
     <>
 <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container-fluid">
-    <Link className="navbar-brand" to="">Navbar</Link>
+    <Link className="navbar-brand" to=""></Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon" />
     </button>
@@ -24,7 +24,7 @@ function Navbar() {
             <li><Link className="dropdown-item" to={'/about'}>about</Link></li>
             <li><Link className="dropdown-item" to={'/services'}>services</Link></li>
             <li><hr className="dropdown-divider" /></li>
-            <li><Link className="dropdown-item" to={'/'}>Something else here</Link></li>
+            <li><Link className="dropdown-item" to={'/posts'}>posts</Link></li>
           </ul>
         </li>
       </ul>
