@@ -9,7 +9,7 @@ function ProductDetails() {
   const [product,setProudect]=useState({});
   const getProductId=async()=>{
 
-    const respons=await fetch(`${import.meta.env.VITE_BURL}/products/${id}`)
+    const respons=await fetch(`${import.meta.env.VITE_BURL}/products/${id}`);
     console.log(import.meta.env.VITE_BURL);
 
     const result=await respons.json();
