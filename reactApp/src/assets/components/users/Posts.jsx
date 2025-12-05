@@ -21,6 +21,16 @@ function Posts() {
     getPosts();
   }, []);
 
+
+
+
+  //  0- cheak  the  leneght (loder  page att  only  called  at  the  first untill  the  api  get  the  data  )
+  if(products.length==0){
+    return <>
+       <h2> waite</h2>
+    </>
+  }
+
   // 1- re render  for  data  but  there  is  no  data  at  the  first  time
   //  5-  rerender  its  happen  becouse  of usestate  to  draw  the  data
   return (
