@@ -7,7 +7,9 @@ function Products() {
   const [error, setError] = useState(null);
   const getProudects = async () => {
     try {
-      const response = await fetch("https://dummyjson.com/products");
+      const response = await fetch(`${import.meta.env.VITE_BURL}/products`);
+          console.log(import.meta.env.VITE_BURL);
+
       const result = await response.json();
       //  the  data  from  api  is  obj  so  i  send  only the  array
       setProudects(result.products);
@@ -44,7 +46,7 @@ function Products() {
                 <div className="product">
                   <img src={item.thumbnail} className="w-100 "></img>
                   <h2>{item.title}</h2>
-                  <Link to={"/ProductDetails"} className="btn btn-outline-dark">
+                  <Link to={`/ProductDetails/${item.id}`} className="btn btn-outline-dark">
                     {" "}
                     detalies
                   </Link>
