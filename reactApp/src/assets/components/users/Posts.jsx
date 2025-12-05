@@ -2,46 +2,37 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 
 function Posts() {
-  // 4-  get data  and  rerender  it
-  //  the data  type  i  wont  to  send  is   array  so  i  must  accept  only array
-  const [products, setProducts] = useState([]);
 
-  //2-  api  insistlize
-  const getPosts = async () => {
-    console.log("get  posts");
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const [pizza, setPizza] = useState([]);
+  const getPizza = async () => {
+    const response = await fetch("https://forkify-api.herokuapp.com/api/search?q=pizza");
     const result = await response.json();
-    //  5-  the  datat  from api  is  array  so  we  can  send  it  directly
-    setProducts(result);
-    console.log(result);
-  };
-
-  // 3- to  use  api  using  hooks(get data)
-  useEffect(() => {
-    getPosts();
-  }, []);
-
-
-
-
-  //  0- cheak  the  leneght (loder  page att  only  called  at  the  first untill  the  api  get  the  data  )
-  if(products.length==0){
-    return <>
-       <h2> waite</h2>
-    </>
+    //  the  data  from  api  is  obj  so  i  send  only the  array 
+    setPizza(result.recipes);
   }
 
-  // 1- re render  for  data  but  there  is  no  data  at  the  first  time
-  //  5-  rerender  its  happen  becouse  of usestate  to  draw  the  data
-  return (
-    <div className="products">
-      {products.map((product) => (
-        <div className="product">
-          <h2> {product.title}</h2>
-          <p> {product.body}</p>
-        </div>
-      ))}
-    </div>
+
+
+  useEffect(() => { getPizza(); }, []);
+
+
+  if (pizza.length == 0) {
+    return <>
+      <h2> waiting....</h2>
+    </>
+  }
+ return (
+    <>
+      <div className="pizzas">
+        <h2>pizza menus</h2>
+        {pizza.map((item) => (
+          <div className="pizza" key={item.recipe_id}>
+            <h2>{item.title}</h2>
+            <img src={item.image_url} alt={item.title} />
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
